@@ -10,117 +10,119 @@ import jakarta.persistence.Id;
 @Entity
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    private String title;
+	private String title;
 
-    private String author;
-    private String publisher;
+	private String author;
 
-    private int publishedYear;
-    private String isbn;
-    private String description;
-    private String review;
-    private String image;
-    private Date readDate;
+	private String publisher;
 
-    public String getTitle() {
-        return title;
-    }
+	private int publishedYear;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	private String isbn;
 
+	private String description;
 
-    public String getAuthor() {
-        return author;
-    }
+	private String review;
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+	private String image;
 
+	private Date readDate;
 
-    public String getPublisher() {
-        return publisher;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
+	public String getAuthor() {
+		return author;
+	}
 
-    public int getPublishedYear() {
-        return publishedYear;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public void setPublishedYear(int publishedYear) {
-        this.publishedYear = publishedYear;
-    }
+	public String getPublisher() {
+		return publisher;
+	}
 
-    public String getIsbn() {
-        return isbn;
-    }
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+	public int getPublishedYear() {
+		return publishedYear;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setPublishedYear(int publishedYear) {
+		this.publishedYear = publishedYear;
+	}
 
+	public String getIsbn() {
+		return isbn;
+	}
 
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getReview() {
-        return review;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setReview(String review) {
-        this.review = review;
-    }
+	public String getReview() {
+		return review;
+	}
 
-    public String getImage() {
-        return image;
-    }
+	public void setReview(String review) {
+		this.review = review;
+	}
 
-    public void setImage(String image) {
-        this.image = image;
-    }   
+	public String getImage() {
+		return image;
+	}
 
-    public Date getReadDate() {
-        return readDate;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-    public void setReadDate(Date readDate) {
-        this.readDate = readDate;
-    }
+	public Date getReadDate() {
+		return readDate;
+	}
 
-    public Long getId() {
-        return id;
-    }
-    
-    public Book(Long id, String title, String author, String publisher, int publishedYear, String isbn, String description, String review, String image, Date readDate) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
-        this.publishedYear = publishedYear;
-        this.isbn = isbn;
-        this.description = description;
-        this.review = review;
-        this.image = image;
-        this.readDate = readDate;
-    }
+	public void setReadDate(Date readDate) {
+		this.readDate = readDate;
+	}
 
-    public Book() {}
+	public Long getId() {
+		return id;
+	}
 
+	public Book(Long id, String title, String author, String publisher, int publishedYear, String isbn,
+			String description, String review, String image, Date readDate) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+		this.publishedYear = publishedYear;
+		this.isbn = isbn;
+		this.description = description;
+		this.review = review;
+		this.image = image;
+		this.readDate = readDate;
+	}
+
+	public Book() {
+	}
 
 }

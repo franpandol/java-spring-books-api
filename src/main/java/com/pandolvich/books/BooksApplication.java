@@ -36,18 +36,20 @@ public class BooksApplication {
 	@Configuration
 	@EnableCaching
 	public class CacheConfig {
+
 		@Bean
 		public RedisCacheConfiguration redisCacheConfiguration() {
 			return RedisCacheConfiguration.defaultCacheConfig()
-					.entryTtl(Duration.ofMinutes(10)) // Set cache expiration time
-					.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+				.entryTtl(Duration.ofMinutes(10)) // Set cache expiration time
+				.serializeValuesWith(RedisSerializationContext.SerializationPair
+					.fromSerializer(new GenericJackson2JsonRedisSerializer()));
 		}
 
 		@Bean
 		public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
-			return RedisCacheManager.builder(connectionFactory)
-					.cacheDefaults(redisCacheConfiguration())
-					.build();
+			return RedisCacheManager.builder(connectionFactory).cacheDefaults(redisCacheConfiguration()).build();
 		}
+
 	}
+
 }

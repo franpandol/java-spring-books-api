@@ -6,34 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
 @RestController
 @RequestMapping("/api/books/")
 public class BookController {
 
-    @Autowired
-    private BookService bookService;
+	private BookService bookService = null;
 
-    @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
-    }
+	public BookController(BookService bookService) {
+		this.bookService = bookService;
+	}
 
-    @PostMapping
-    public Book saveBook(@RequestBody Book book) {
-        return bookService.saveBook(book);
-    }
+	@GetMapping
+	public List<Book> getAllBooks() {
+		return bookService.getAllBooks();
+	}
 
-    @GetMapping(params = "title", path = "/search")
-    public List<Book> findByTitle(@RequestParam String title) {
-        return bookService.findByTitle(title);
-    }
-    
+	@PostMapping
+	public Book saveBook(@RequestBody Book book) {
+		return bookService.saveBook(book);
+	}
+
+	@GetMapping(params = "title", path = "/search")
+	public List<Book> findByTitle(@RequestParam String title) {
+		return bookService.findByTitle(title);
+	}
+
+	@PostMapping(path = "/upload", consumes = "multipart/form-data")
+	public Book uploadImage(@RequestParam("image") MultipartFile file, @RequestParam("book_id") Long bookId) {
+		return bookService.saveImageUrl(bookId, file);
+	}
+
 }
